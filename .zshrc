@@ -100,4 +100,4 @@ source $ZSH/oh-my-zsh.sh
 alias pj=$HOME/Projects
 alias cls="clear"
 
-export PATH="$PATH:`pwd`/tools/flutter/bin"
+# export PATH="$PATH:`pwd`/tools/flutter/bin"
