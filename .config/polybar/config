@@ -1,0 +1,12 @@
+[bar/example]
+;monitor = ${env:MONITOR:HDMI-1}
+width = 100%
+height = 27
+
+modules-left = xwindow
+modules-center = 
+modules-right =
+
+[module/xwindow]
+type = internal/xwindow
+label = %title:0:30:...%
