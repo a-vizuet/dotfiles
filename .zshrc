@@ -107,7 +107,7 @@ export PATH="$DENO_INSTALL/bin:$PATH"
 export PATH="$PATH:`pwd`/Tools/flutter/bin"
 
 # The next line updates PATH for the Google Cloud SDK.
-if [ -f '/home/megustalafantabienfria/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . '/home/megustalafantabienfria/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+if [ -f $HOME'/Downloads/google-cloud-sdk/path.zsh.inc' ]; then . $HOME'/Downloads/google-cloud-sdk/path.zsh.inc'; fi
 
 # The next line enables shell command completion for gcloud.
-if [ -f '/home/megustalafantabienfria/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . '/home/megustalafantabienfria/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
+if [ -f $HOME'/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then . $HOME'/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
