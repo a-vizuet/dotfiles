@@ -1,12 +1,134 @@
+[colors]
+primary = #ffb52a
+background-alt = #444
+
 [bar/example]
-;monitor = ${env:MONITOR:HDMI-1}
+; monitor = ${env:MONITOR:HDMI-1}
+background = #141414
+foreground = #f7f7f2
 width = 100%
 height = 27
 
-modules-left = xwindow
+line-size = 3
+border-size = 0
+
+font-0 = Source Sans Pro:style=Regular
+font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Solid
+
+padding-left = 2
+padding-right = 2
+
+module-margin-left = 1
+module-margin-right = 2
+
+modules-left = i3 xwindow
 modules-center = 
-modules-right =
+modules-right = backlight pulseaudio network date
+
+[module/i3]
+type = internal/i3
+format = <label-state> <label-mode>
+index-sort = true
+wrapping-scroll = false
+ 
+; Only show workspaces on the same output as the bar
+;pin-workspaces = true
+ 
+label-mode-padding = 1
+label-mode-foreground = #000
+label-mode-background = #141414
+ 
+; focused = Active workspace on focused monitor
+label-focused = %index%
+
+label-focused-background = #141414
+label-focused-underline = #31d843
+label-focused-padding = 1
+
+; unfocused = Inactive workspace on any monitor
+label-unfocused = %index%
+label-unfocused-padding = 1
+
+; visible = Active workspace on unfocused monitor
+label-visible = %index%
+label-visible-background = ${self.label-focused-background}
+label-visible-underline = ${self.label-focused-underline}
+label-visible-padding = ${self.label-focused-padding}
+
+; urgent = Workspace with urgency hint set
+label-urgent = %index%
+label-urgent-background = #cc444b
+label-urgent-padding = 1
+
+; Separator in between workspaces
+ ; label-separator = |
 
 [module/xwindow]
 type = internal/xwindow
-label = %title:0:30:...%
+label =  %title:0:30:...%
+label-foreground = #ccc
+label-underline = #cc444b
+
+[module/backlight]
+type = internal/backlight
+
+card = nvidia
+
+format = <label> <bar>
+label = 
+
+bar-width = 10
+bar-indicator = |
+bar-indicator-foreground = #fff
+bar-indicator-font = 2
+bar-fill = ─
+bar-fill-font = 2
+bar-fill-foreground = #9f78e1
+bar-empty = ─
+bar-empty-font = 2
+bar-empty-foreground = #666
+
+[module/pulseaudio]
+type = internal/pulseaudio
+
+format-volume = <ramp-volume>  <label-volume>
+format-volume-underline = #31d843
+format-volume-padding = 3
+
+label-volume = %percentage% %
+label-volume-underline = #31d843
+
+ramp-volume-0 = 
+ramp-volume-1 = 
+ramp-volume-2 = 
+
+label-muted = 
+label-muted-foreground = #666
+label-muted-padding = 3
+label-muted-underline = #31d843
+
+[module/network]
+type = internal/network
+interface = wlxd03745347abf
+
+format-connected =   <label-connected>
+format-connected-underline = #31d843
+format-connected-padding = 2
+
+format-disconnected = <label-disconnected>
+
+label-connected = %essid% %downspeed:9%
+
+label-disconnected = not connected
+
+[module/date]
+type = internal/date
+interval = 1
+
+date = %b %d %Y
+time = %H:%M
+
+label =  %date%, %time%
+label-underline = #31d843
+label-padding = 3
+
