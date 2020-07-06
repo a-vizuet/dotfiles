@@ -23,7 +23,7 @@ module-margin-right = 2
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = backlight backlight_laptop pulseaudio network network_laptop date battery
+modules-right = backlight backlight_laptop pulseaudio network network_second network_laptop date battery
 
 [module/i3]
 type = internal/i3
@@ -119,6 +119,20 @@ label-muted-padding = 2
 [module/network]
 type = internal/network
 interface = wlxd03745347abf
+
+format-connected =   <label-connected>
+format-connected-underline = #31d843
+format-connected-padding = 2
+
+format-disconnected = <label-disconnected>
+
+label-connected = %essid% %downspeed:9%
+
+label-disconnected = not connected
+
+[module/network_second]
+type = internal/network
+interface = wlxc46e1f27a10e
 
 format-connected =   <label-connected>
 format-connected-underline = #31d843
