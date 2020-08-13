@@ -34,9 +34,10 @@ wrapping-scroll = false
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
  
-label-mode-padding = 1
-label-mode-foreground = #000
-label-mode-background = #141414
+label-mode = %mode%
+label-mode-padding = 2
+label-mode-foreground = #fff
+label-mode-background = #cc444b
  
 ; focused = Active workspace on focused monitor
 label-focused = %index%
@@ -126,7 +127,7 @@ format-connected-padding = 2
 
 format-disconnected = <label-disconnected>
 
-label-connected = %essid% %downspeed:9%
+label-connected = %essid%
 
 label-disconnected = not connected
 
@@ -140,7 +141,7 @@ format-connected-padding = 2
 
 format-disconnected = <label-disconnected>
 
-label-connected = %essid% %downspeed:9%
+label-connected = %essid%
 
 label-disconnected = not connected
 
@@ -154,7 +155,7 @@ format-connected-padding = 2
 
 format-disconnected = <label-disconnected>
 
-label-connected = %essid% %downspeed:9%
+label-connected = %essid%
 
 label-disconnected = not connected
 
