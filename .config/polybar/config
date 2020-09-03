@@ -1,11 +1,16 @@
 [colors]
 primary = #ffb52a
+foreground-text = #FFF4E9
+foreground-text-alt = #6E7271
+background = #141414
+background-alert = #CC444B
+background-success = #31D843
 background-alt = #444
 
 [bar/example]
 ; monitor = ${env:MONITOR:HDMI-1}
-background = #141414
-foreground = #f7f7f2
+background = ${colors.background}
+foreground = ${colors.foreground-text}
 width = 100%
 height = 27
 
@@ -18,7 +23,7 @@ font-1 = Font Awesome 5 Free,Font Awesome 5 Free Regular:style=Solid
 padding-left = 2
 padding-right = 2
 
-module-margin-left = 1
+module-margin-left = 2
 module-margin-right = 2
 
 modules-left = i3 xwindow
@@ -33,42 +38,46 @@ wrapping-scroll = false
  
 ; Only show workspaces on the same output as the bar
 ;pin-workspaces = true
- 
+
+; mode = Active mode on focused monitor (as resize, etc...)
 label-mode = %mode%
 label-mode-padding = 2
-label-mode-foreground = #fff
-label-mode-background = #cc444b
- 
+label-mode-margin-left = 3
+label-mode-foreground = ${colors.foreground-text}
+label-mode-background = ${colors.background-alert} 
+
 ; focused = Active workspace on focused monitor
 label-focused = %index%
-
-label-focused-background = #141414
-label-focused-underline = #31d843
+label-focused-underline = ${colors.background-success}
 label-focused-padding = 1
 
 ; unfocused = Inactive workspace on any monitor
 label-unfocused = %index%
 label-unfocused-padding = 1
+label-unfocused-foreground = ${colors.foreground-text-alt}
 
 ; visible = Active workspace on unfocused monitor
-label-visible = %index%
-label-visible-background = ${self.label-focused-background}
-label-visible-underline = ${self.label-focused-underline}
-label-visible-padding = ${self.label-focused-padding}
+; haven't tested it yet
+; label-visible = %index%
+; label-visible-background = ${self.label-focused-background}
+; label-visible-underline = ${self.label-focused-underline}
+; label-visible-padding = ${self.label-focused-padding}
 
 ; urgent = Workspace with urgency hint set
 label-urgent = %index%
-label-urgent-background = #cc444b
+label-urgent-background = ${colors.background-alert} 
 label-urgent-padding = 1
-
-; Separator in between workspaces
- ; label-separator = |
 
 [module/xwindow]
 type = internal/xwindow
-label =  %title:0:30:...%
-label-foreground = #ccc
-label-underline = #cc444b
+
+format =  <label>
+format-padding = 2
+format-foreground = ${colors.foreground-text-alt}
+format-underline = ${colors.background-alert}
+
+label = %title:0:30:...%
+label-padding-left = 1
 
 [module/backlight]
 type = internal/backlight
@@ -103,31 +112,40 @@ label =  %percentage%%
 type = internal/pulseaudio
 
 format-volume = <ramp-volume> <label-volume> 
-format-volume-underline = #31d843
+format-foreground = ${colors.foreground-text-alt}
+format-volume-underline = ${colors.background-success} 
 format-volume-padding = 2
 
 label-volume = %percentage%%
+label-foreground = ${colors.foreground-text}
+label-padding-left = 2
 
 ramp-volume-0 = 
 ramp-volume-1 = 
 ramp-volume-2 = 
 
 label-muted = 
-label-muted-foreground = #666
-label-muted-underline = #31d843
+label-muted-foreground = ${colors.foreground-text-alt}
+label-muted-underline = ${colors.background-success} 
 label-muted-padding = 2
 
 [module/network]
 type = internal/network
 interface = wlxd03745347abf
 
-format-connected =   <label-connected>
-format-connected-underline = #31d843
+format-connected =  <label-connected>
+format-connected-foreground = ${colors.foreground-text-alt}
+format-connected-underline = ${colors.background-success}
 format-connected-padding = 2
 
 format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${colors.foreground-text-alt}
+format-disconnected-underline = ${colors.background-success}
+format-disconnected-padding = 2
 
 label-connected = %essid%
+label-connected-foreground = ${colors.foreground-text}
+label-connected-padding-left = 1
 
 label-disconnected = not connected
 
@@ -135,13 +153,19 @@ label-disconnected = not connected
 type = internal/network
 interface = wlxc46e1f27a10e
 
-format-connected =   <label-connected>
-format-connected-underline = #31d843
+format-connected =  <label-connected>
+format-connected-foreground = ${colors.foreground-text-alt}
+format-connected-underline = ${colors.background-success}
 format-connected-padding = 2
 
 format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${colors.foreground-text-alt}
+format-disconnected-underline = ${colors.background-success}
+format-disconnected-padding = 2
 
 label-connected = %essid%
+label-connected-foreground = ${colors.foreground-text}
+label-connected-padding-left = 1
 
 label-disconnected = not connected
 
@@ -149,16 +173,21 @@ label-disconnected = not connected
 type = internal/network
 interface = wlo1
 
-format-connected =   <label-connected>
-format-connected-underline = #31d843
+format-connected =  <label-connected>
+format-connected-foreground = ${colors.foreground-text-alt}
+format-connected-underline = ${colors.background-success}
 format-connected-padding = 2
 
 format-disconnected = <label-disconnected>
+format-disconnected-foreground = ${colors.foreground-text-alt}
+format-disconnected-underline = ${colors.background-success}
+format-disconnected-padding = 2
 
 label-connected = %essid%
+label-connected-foreground = ${colors.foreground-text}
+label-connected-padding-left = 1
 
 label-disconnected = not connected
-
 
 [module/date]
 type = internal/date
@@ -167,9 +196,14 @@ interval = 1
 date = %b %d %Y
 time = %H:%M
 
-label =  %date%, %time%
-label-underline = #31d843
-label-padding = 3
+format =  <label>
+format-underline = ${colors.background-success}
+format-padding = 3
+format-foreground = ${colors.foreground-text-alt}
+
+label = %date% %time%
+label-padding-left = 1
+label-foreground = ${colors.foreground-text}
 
 [module/battery]
 type = internal/battery
