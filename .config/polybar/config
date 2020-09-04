@@ -28,7 +28,7 @@ module-margin-right = 2
 
 modules-left = i3 xwindow
 modules-center = 
-modules-right = backlight backlight_laptop pulseaudio network network_second network_laptop date battery
+modules-right = backlight pulseaudio network network_second network_laptop date battery
 
 [module/i3]
 type = internal/i3
@@ -81,32 +81,15 @@ label-padding-left = 1
 
 [module/backlight]
 type = internal/backlight
-
-card = nvidia
-
-format = <label> <bar>
-label = 
-
-bar-width = 10
-bar-indicator = |
-bar-indicator-foreground = #fff
-bar-indicator-font = 2
-bar-fill = ─
-bar-fill-font = 2
-bar-fill-foreground = #9f78e1
-bar-empty = ─
-bar-empty-font = 2
-bar-empty-foreground = #666
-
-[module/backlight_laptop]
-type = internal/backlight
-
 card = intel_backlight
 
-format = <label>
+format =  <label>
 format-padding = 2
-format-underline = #31d843
-label =  %percentage%%
+format-foreground = ${colors.foreground-text-alt}
+format-underline = ${colors.background-success}
+
+label =  %percentage%%
+label-foreground = ${colors.foreground-text}
 
 [module/pulseaudio]
 type = internal/pulseaudio
@@ -214,18 +197,26 @@ battery = BAT0
 adapter = AC
 
 format-full = <ramp-capacity> <label-full>
-format-full-underline = #31d843
+format-full-underline = ${colors.background-success}
 format-full-padding = 2
+
 format-charging = <animation-charging> <label-charging>
-format-charging-underline = #31d843
+format-charging-underline = ${colors.background-success}
 format-charging-padding = 2
+
 format-discharging = <ramp-capacity> <label-discharging>
-format-discharging-underline = #31d843
+format-discharging-underline = ${colors.background-success}
+format-discharging-foreground = ${colors.foreground-text-alt}
 format-discharging-padding = 2
 
 label-charging = %percentage%%
+label-charging-foreground = ${colors.foreground-text}
+
 label-discharging = %percentage%%
+label-discharging-foreground = ${colors.foreground-text}
+
 label-full = %percentage%%
+label-full-foreground = ${colors.foreground-text}
 
 ramp-capacity-0 = 
 ramp-capacity-1 = 
