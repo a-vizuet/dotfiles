@@ -18,11 +18,13 @@ set $mod Mod4
 # Custom executions
 
 # Only in desktop
-exec_always --no-startup-id xrandr --output HDMI-0 --brightness 0.75
+exec_always --no-startup-id $HOME/.config/i3/brightness-desktop.sh
+# exec_always --no-startup-id xrandr --output HDMI-0 --brightness 0.75
 exec_always --no-startup-id $HOME/.config/dunst/launch.sh
 exec_always --no-startup-id $HOME/.config/compton/launch.sh
 exec_always --no-startup-id $HOME/.config/polybar/launch.sh
 exec_always --no-startup-id feh --bg-fill $HOME/Pictures/wallpapers/1561717870095.jpg
+# exec_always --no-startup-id picom -b
 
 # Custom gaps config
 for_window [class=".*"] border pixel 0
