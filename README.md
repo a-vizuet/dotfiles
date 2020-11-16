@@ -57,6 +57,9 @@ Well, vim is available on apt so we can install it with just a simple `apt-get i
 
 Now we need to install [vim plug](https://github.com/junegunn/vim-plug) in order to use some scripts/plugins and the you just enter to vim an use the `:PlugInstall` command.
 
+### FZF
+### CoC 
+
 ## Rofi
 
 `.config/rofi`
