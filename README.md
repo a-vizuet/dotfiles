@@ -58,7 +58,16 @@ Well, vim is available on apt so we can install it with just a simple `apt-get i
 Now we need to install [vim plug](https://github.com/junegunn/vim-plug) in order to use some scripts/plugins and the you just enter to vim an use the `:PlugInstall` command.
 
 ### FZF
+
+Even though FZF at this point might be installed, it won't work as expected if you don't also have installed the dependecies. It's easy, basically you just need to install Bat, Ag and Rg.
+
+Clear instructions [here](https://github.com/junegunn/fzf.vim).
+
 ### CoC 
+
+If you inspect the vim config file you'll find some coc language plugins. Those plugins even though would be installed if you have already executed `:PlugInstall` won't work. You must install those plugins manually as `:CocInstall coc-plugin`. You better check if the `coc-plugin` exists.
+
+Those plugins are just in the vim config file for reference.
 
 ## Rofi
 
