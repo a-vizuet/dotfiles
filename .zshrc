@@ -69,7 +69,7 @@ ZSH_THEME="spaceship"
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git nvm zsh-autosuggestions docker)
+plugins=(git nvm zsh-autosuggestions docker cargo colored-man-pages command-not-found docker-compose thefuck)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -101,7 +101,7 @@ source $ZSH/oh-my-zsh.sh
 alias pj=$HOME/Projects
 alias cls="clear"
 
-export DENO_INSTALL="/home/megustalafantabienfria/.deno"
+export DENO_INSTALL=$HOME"/.deno"
 export PATH="$DENO_INSTALL/bin:$PATH"
 
 export PATH="$PATH:`pwd`/Tools/flutter/bin"
